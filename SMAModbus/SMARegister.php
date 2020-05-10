@@ -24,7 +24,7 @@ class SMARegister
              * Global
              */
             30051 => [
-                'name' => 'Device class',
+                'name' => 'Geräteklasse',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'ENUM',
@@ -41,7 +41,7 @@ class SMARegister
                 ]
             ],
             30053 => [
-                'name' => 'Device-ID',
+                'name' => 'Gerätemodell',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'ENUM',
@@ -365,20 +365,20 @@ class SMARegister
                 ]
             ],
             30057 => [
-                'name' => 'Serial',
+                'name' => 'Seriennummer',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'RAW'
             ],
             30231 => [
-                'name' => 'Power limit',
+                'name' => 'Maximal dauerhaft mögliche Wirkleistung',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'FIX0',
                 'profile' => 'Watt'
             ],
             30837 => [
-                'name' => 'Active power target value',
+                'name' => 'Wirkleistungssollwert (W)',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'FIX0',
@@ -387,7 +387,7 @@ class SMARegister
         ],
         'sunnyboy' => [
             30231 => [
-                'name' => 'Power limit',
+                'name' => 'Maximal dauerhaft mögliche Wirkleistung',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'FIX0',
@@ -406,70 +406,78 @@ class SMARegister
              * Global
              */
             30201 => [
-                'name' => 'Status',
+                'name' => 'Zustand',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'ENUM',
                 'mapping' => [
-                    35 => 'Error',
-                    303 => 'Off',
+                    35 => 'Fehler',
+                    303 => 'Aus',
                     307 => 'OK',
-                    455 => 'Warning'
+                    455 => 'Warnung'
                 ]
             ],
             30541 => [
-                'name' => 'Operating time',
+                'name' => 'Betriebszeit',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'DURATION_S',
                 'profile' => 'Hours'
             ],
             30543 => [
-                'name' => 'Feed-in time',
+                'name' => 'Einspeisezeit',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'DURATION_S',
                 'profile' => 'Hours'
             ],
-            30535 => [
-                'name' => 'Day yield',
-                'count' => 2,
-                'type' => 'U32',
-                'format' => 'FIX3', // convert Wh to kWh
-                'profile' => '~Electricity',
-                'archive' => 1 // archive: counter
-            ],
             30531 => [
-                'name' => 'Total yield',
+                'name' => 'Gesamtertrag (kWh)',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'FIX0',
                 'profile' => 'kWh.Fixed',
                 'archive' => 1 // archive: counter
+            ],			
+            30535 => [
+                'name' => 'Tagesertrag (Wh)',
+                'count' => 2,
+                'type' => 'U32',
+                'format' => 'FIX0', // convert Wh to kWh
+                'profile' => 'Wh',
+                'archive' => 1 // archive: counter
             ],
+            30537 => [
+                'name' => 'Tagesertrag (kWh)',
+                'count' => 2,
+                'type' => 'U32',
+                'format' => 'FIX0', // convert Wh to kWh
+                'profile' => 'kWh.Fixed',
+                'archive' => 1 // archive: counter
+            ],			
             30769 => [
-                'name' => 'DC current input',
+                'name' => 'DC Strom Eingang (A)',
                 'count' => 2,
                 'type' => 'S32',
                 'format' => 'FIX3',
                 'profile' => '~Ampere'
             ],
             30771 => [
-                'name' => 'DC voltage input',
+                'name' => 'DC Spannung Eingang (V)',
                 'count' => 2,
                 'type' => 'S32',
                 'format' => 'FIX2',
                 'profile' => '~Volt'
             ],
             30773 => [
-                'name' => 'DC power input',
+                'name' => 'DC Leistung Eingang (W)',
                 'count' => 2,
                 'type' => 'S32',
                 'format' => 'FIX0',
                 'profile' => 'Watt'
             ],
             30775 => [
-                'name' => 'AC active power across all phases',
+                'name' => 'AC Wirkleistung über alle Phasen (W)',
                 'count' => 2,
                 'type' => 'S32',
                 'format' => 'FIX0',
@@ -477,124 +485,103 @@ class SMARegister
                 'archive' => 0 // archive: default
             ],
             30789 => [
-                'name' => 'Grid voltage phase AB',
+                'name' => 'Netzspannung Phase-AB (V)',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'FIX2',
                 'profile' => '~Volt'
             ],
             30791 => [
-                'name' => 'Grid voltage phase BC',
+                'name' => 'Netzspannung Phase-BC (V)',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'FIX2',
                 'profile' => '~Volt'
             ],
             30793 => [
-                'name' => 'Grid voltage phase CA',
+                'name' => 'Netzspannung Phase-CA',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'FIX2',
                 'profile' => '~Volt'
             ],
             30795 => [
-                'name' => 'Grid current',
+                'name' => 'Netzstrom AC (A)',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'FIX3',
                 'profile' => '~Ampere'
             ],
             30803 => [
-                'name' => 'Power frequency',
+                'name' => 'Netzfrequenz (Hz)',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'FIX2',
                 'profile' => '~Hertz'
             ],
-            /*
-            34109 => [
-                'name' => 'Heat sink temperature',
-                'count' => 2,
-                'type' => 'S32',
-                'format' => 'TEMP',
-                'profile' => '~Temperature'
-            ],
-            34113 => [
-                'name' => 'Interior temperature',
-                'count' => 2,
-                'type' => 'S32',
-                'format' => 'TEMP',
-                'profile' => '~Temperature'
-            ],
-            34125 => [
-                'name' => 'External temperature',
-                'count' => 2,
-                'type' => 'S32',
-                'format' => 'TEMP',
-                'profile' => '~Temperature'
-            ],
-            */
+
+
             /**
              * Sunny Tripower
              */
             30777 => [
-                'name' => 'Power L1',
+                'name' => 'Leistung L1 (W)',
                 'count' => 2,
                 'type' => 'S32',
                 'format' => 'FIX0',
                 'profile' => 'Watt'
             ],
             30779 => [
-                'name' => 'Power L2',
+                'name' => 'Leistung L2 (W)',
                 'count' => 2,
                 'type' => 'S32',
                 'format' => 'FIX0',
                 'profile' => 'Watt'
             ],
             30781 => [
-                'name' => 'Power L3',
+                'name' => 'Leistung L3 (W)',
                 'count' => 2,
                 'type' => 'S32',
                 'format' => 'FIX0',
                 'profile' => 'Watt'
             ],
             30783 => [
-                'name' => 'Grid Voltage phase L1',
+                'name' => 'Netzspannung L1 gegen N (V)',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'FIX2',
                 'profile' => '~Volt'
             ],
             30785 => [
-                'name' => 'Grid Voltage phase L2',
+                'name' => 'Netzspannung L2 gegen N (V)',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'FIX2',
                 'profile' => '~Volt'
             ],
             30787 => [
-                'name' => 'Grid Voltage phase L3',
+                'name' => 'Netzspannung L3 gegen N (V)',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'FIX2',
                 'profile' => '~Volt'
             ],
             30797 => [
-                'name' => 'Grid current phase L1',
+                'name' => 'Netzstrom L1 (A)',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'FIX3',
                 'profile' => '~Ampere'
             ],
             30799 => [
-                'name' => 'Grid current phase L2',
+                'name' => 'Netzstrom L2 (A)',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'FIX3',
                 'profile' => '~Ampere'
             ],
             30801 => [
-                'name' => 'Grid current phase L3',
+                'name' => 'Netzstrom L3 (A)',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'FIX3',
@@ -611,93 +598,86 @@ class SMARegister
                 'format' => 'FW',
             ],
             30577 => [
-                'name' => 'Grid energy consumption today',
+                'name' => 'Netzbezug heute (Wh)',
                 'count' => 2,
                 'type' => 'U32',
-                'format' => 'FIX3',
-                'profile' => '~Electricity'
+                'format' => 'FIX0',
+                'profile' => 'Wh'
             ],
             30579 => [
-                'name' => 'Grid energy feed-in today',
+                'name' => 'Netzeinspeisung heute (Wh)',
                 'count' => 2,
                 'type' => 'U32',
-                'format' => 'FIX3',
-                'profile' => '~Electricity'
+                'format' => 'FIX0',
+                'profile' => 'Wh'
             ],
             30581 => [
-                'name' => 'Grid reference counter reading',
+                'name' => 'Zählerstand Netzbezugs-Zähler (Wh)',
                 'count' => 2,
                 'type' => 'U32',
-                'format' => 'FIX3',
-                'profile' => '~Electricity'
+                'format' => 'FIX0',
+                'profile' => 'Wh'
             ],
             30583 => [
-                'name' => 'Grid feed-in counter reading',
+                'name' => 'Zählerstand Netzeinspeise-Zähler (Wh)',
                 'count' => 2,
                 'type' => 'U32',
-                'format' => 'FIX3',
-                'profile' => '~Electricity'
+                'format' => 'FIX0',
+                'profile' => 'Wh'
             ],
             30587 => [
                 'name' => 'Zählerstand PV-Erzeugungszähler, in Wh',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'FIX0',
-                'profile' => '~Electricity'
+                'profile' => 'Wh'
             ],			
             30845 => [
-                'name' => 'Current battery charge status',
+                'name' => 'Aktueller Batterieladezustand (%)',
                 'count' => 2,
                 'type' => 'U32',
-                'format' => 'RAW',
+                'format' => 'FIX0',
                 'profile' => '~Battery.100'
             ],
-            30849 => [
-                'name' => 'Battery temperature',
+            30847 => [
+                'name' => 'Aktuelle Batteriekapazität (%)',
                 'count' => 2,
                 'type' => 'U32',
-                'format' => 'FIX1',
-                'profile' => '~Temperature'
-            ],
-            30851 => [
-                'name' => 'Battery voltage',
-                'count' => 2,
-                'type' => 'U32',
-                'format' => 'FIX2',
-                'profile' => '~Volt'
-            ],
+                'format' => 'FIX0',
+                'profile' => '~Battery.100'
+            ],			
             30853 => [
-                'name' => 'Active battery charging mode',
+                'name' => 'Aktives Batterieladeverfahren',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'ENUM',
                 'mapping' => [
-                    1767 => 'Quick charge',
-                    1768 => 'Full charge',
-                    1769 => 'Compensation charge',
-                    1770 => 'Maintenance charge',
-                    2184 => 'Save energy while on mains'
+                    1767 => 'Schnelladung',
+                    1768 => 'Volladung',
+                    1769 => 'Ausgleichsladung',
+                    1770 => 'Erhaltungsladung',
+                    2184 => 'Energiesparen am Netz'
                 ]
             ],
             30857 => [
-                'name' => 'Number of battery charge throughputs',
+                'name' => 'Anzahl Ladungsdurchsätze der Batterie',
                 'count' => 2,
                 'type' => 'S32',
                 'format' => 'FIX0',
             ],
             30859 => [
-                'name' => 'Battery maintenance charge status',
+                'name' => 'Zustand Wartungsladung der Batterie',
                 'count' => 2,
                 'type' => 'U32',
                 'format' => 'ENUM',
                 'mapping' => [
-                    803 => 'Inactive',
-                    1771 => 'Charge with solar power',
-                    1772 => 'Charge with solar and mains power',
+                    803 => 'inaktiv',
+                    1771 => 'lade mit Solarstrom',
+                    1772 => 'lade mit Solar- und Netzstrom',
                 ]
             ],
             30861 => [
-                'name' => 'Consumer power',
+                'name' => 'Leistung Verbraucher (W)',
                 'count' => 2,
                 'type' => 'S32',
                 'format' => 'FIX0',
@@ -727,7 +707,7 @@ class SMARegister
             30871 => [
                 'name' => 'Momentaner Eigenverbrauch, in W',
                 'count' => 2,
-                'type' => 'S32',
+                'type' => 'U32',
                 'format' => 'FIX0',
                 'profile' => 'Watt'
             ]				
@@ -743,7 +723,7 @@ class SMARegister
     const current_addresses = [
         'default' => [
             30775 => [
-                'name' => 'AC active power across all phases',
+                'name' => 'AC Wirkleistung über alle Phasen (W)',
                 'count' => 2,
                 'type' => 'S32',
                 'format' => 'FIX0',
@@ -752,9 +732,9 @@ class SMARegister
         ],
         'sunnyboy' => [
             30775 => [
-                'name' => 'AC active power across all phases',
+                'name' => 'AC Wirkleistung über alle Phasen (W)',
                 'count' => 2,
-                'type' => 'U32',
+                'type' => 'S32',
                 'format' => 'FIX0',
                 'profile' => 'Watt'
             ]
