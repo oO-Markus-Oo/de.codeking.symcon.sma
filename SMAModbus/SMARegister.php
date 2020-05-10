@@ -701,35 +701,35 @@ class SMARegister
                 'count' => 2,
                 'type' => 'S32',
                 'format' => 'FIX0',
-                'profile' => '~Watt'
+                'profile' => 'Watt'
             ],
             30865 => [
                 'name' => 'Leistung Netzbezug, in W',
                 'count' => 2,
                 'type' => 'S32',
                 'format' => 'FIX0',
-                'profile' => '~Watt'
+                'profile' => 'Watt'
             ],
             30867 => [
                 'name' => 'Leistung Netzeinspeisung, in W',
                 'count' => 2,
                 'type' => 'S32',
                 'format' => 'FIX0',
-                'profile' => '~Watt'
+                'profile' => 'Watt'
             ],
             30869 => [
                 'name' => 'Leistung PV-Erzeugung, in W',
                 'count' => 2,
                 'type' => 'S32',
                 'format' => 'FIX0',
-                'profile' => '~Watt'
+                'profile' => 'Watt'
             ],
             30871 => [
                 'name' => 'Momentaner Eigenverbrauch, in W',
                 'count' => 2,
                 'type' => 'S32',
                 'format' => 'FIX0',
-                'profile' => '~Watt'
+                'profile' => 'Watt'
             ]				
         ],
         'sunnyboy' => [
