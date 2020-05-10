@@ -638,6 +638,13 @@ class SMARegister
                 'format' => 'FIX3',
                 'profile' => '~Electricity'
             ],
+            30587 => [
+                'name' => 'Zählerstand PV-Erzeugungszähler, in Wh',
+                'count' => 2,
+                'type' => 'U32',
+                'format' => 'FIX0',
+                'profile' => '~Electricity'
+            ],			
             30845 => [
                 'name' => 'Current battery charge status',
                 'count' => 2,
@@ -695,7 +702,35 @@ class SMARegister
                 'type' => 'S32',
                 'format' => 'FIX0',
                 'profile' => '~Watt'
-            ]
+            ],
+            30865 => [
+                'name' => 'Leistung Netzbezug, in W',
+                'count' => 2,
+                'type' => 'S32',
+                'format' => 'FIX0',
+                'profile' => '~Watt'
+            ],
+            30867 => [
+                'name' => 'Leistung Netzeinspeisung, in W',
+                'count' => 2,
+                'type' => 'S32',
+                'format' => 'FIX0',
+                'profile' => '~Watt'
+            ],
+            30869 => [
+                'name' => 'Leistung PV-Erzeugung, in W',
+                'count' => 2,
+                'type' => 'S32',
+                'format' => 'FIX0',
+                'profile' => '~Watt'
+            ],
+            30871 => [
+                'name' => 'Momentaner Eigenverbrauch, in W',
+                'count' => 2,
+                'type' => 'S32',
+                'format' => 'FIX0',
+                'profile' => '~Watt'
+            ]				
         ],
         'sunnyboy' => [
 
