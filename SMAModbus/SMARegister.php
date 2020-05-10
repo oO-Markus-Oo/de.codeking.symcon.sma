@@ -612,6 +612,13 @@ class SMARegister
                 'profile' => 'Wh'
             ],
             30581 => [
+                'name' => 'Zählerstand Verbrauchszähler (Wh)',
+                'count' => 2,
+                'type' => 'U32',
+                'format' => 'FIX0',
+                'profile' => 'Wh'
+            ],			
+            30581 => [
                 'name' => 'Zählerstand Netzbezugs-Zähler (Wh)',
                 'count' => 2,
                 'type' => 'U32',
