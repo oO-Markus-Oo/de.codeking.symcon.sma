@@ -218,7 +218,10 @@ class SMAModbus extends Module
 
                 // set endianness
                 $endianness = in_array($config['format'], ['RAW', 'TEMP', 'DURATION_S', 'DURATION_H']) ? 2 : 0;
-
+                if ( ($config['name'] == 'Day yield') || ($config['name'] == 'AC active power across all phases') ) {
+                    $endianness = 2;
+                }
+                
                 // fix bytes
                 $value = $endianness
                     ? array_chunk($value, 4)[0]
