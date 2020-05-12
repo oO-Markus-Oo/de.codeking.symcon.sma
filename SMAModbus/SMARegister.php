@@ -734,14 +734,14 @@ class SMARegister
             ],	
 			31397 => [
 							'name' => 'Zählerstand Batterieladung, in Wh',
-							'count' => 4,
+							'count' => 3,
 							'type' => 'U64',
 							'format' => 'FIX0',
 							'profile' => 'Wh'
 						],
 			31401 => [
 							'name' => 'Zählerstand Batterieentladung, in Wh',
-							'count' => 4,
+							'count' => 3,
 							'type' => 'U64',
 							'format' => 'FIX0',
 							'profile' => 'Wh'
