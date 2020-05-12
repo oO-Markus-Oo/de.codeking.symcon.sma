@@ -717,7 +717,35 @@ class SMARegister
                 'type' => 'U32',
                 'format' => 'FIX0',
                 'profile' => 'Watt'
-            ]				
+            ],
+            31393 => [
+                'name' => 'Momentane Batterieladung, in W',
+                'count' => 2,
+                'type' => 'U32',
+                'format' => 'FIX0',
+                'profile' => 'Watt'
+            ],
+            31395 => [
+                'name' => 'Momentane Batterieentladung, in W',
+                'count' => 2,
+                'type' => 'U32',
+                'format' => 'FIX0',
+                'profile' => 'Watt'
+            ],	
+			31397 => [
+							'name' => 'Zählerstand Batterieladung, in Wh',
+							'count' => 4,
+							'type' => 'U64',
+							'format' => 'FIX0',
+							'profile' => 'Wh'
+						],
+			31401 => [
+							'name' => 'Zählerstand Batterieentladung, in Wh',
+							'count' => 4,
+							'type' => 'U64',
+							'format' => 'FIX0',
+							'profile' => 'Wh'
+						]			
         ],
         'sunnyboy' => [
 
